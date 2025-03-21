@@ -51,11 +51,11 @@ export function LoginForm({
 
         
         if (response.user.role_type === "super_admin") {
-          router.push("/super_admin_dashboard");
+          router.push("/dashboard");
         } else if (response.user.role_type === "artist_manager") {
-          router.push("/artist_manager_dashboard");
+          router.push("/dashboard");
         } else if (response.user.role_type === "artist") {
-          router.push("/artist_dashboard");
+          router.push("/dashboard");
         } else {
           router.push("/dashboard"); // Fallback
         }

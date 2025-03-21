@@ -61,7 +61,7 @@ export const SignupForm = () => {
 
     try {
       await signUp(formData);
-      
+
       if (formData.role_type === "artist") {
         setPopupMessage("User created successfully! Redirecting to login...");
       } else {
@@ -72,7 +72,7 @@ export const SignupForm = () => {
 
       setTimeout(() => {
         setShowPopup(false);
-        router.push("/login");
+        router.push("/");
       }, 3000);
     } catch (err) {
       setError(err.message || "An error occurred during signup.");
@@ -80,7 +80,7 @@ export const SignupForm = () => {
   };
 
   return (
-    <div className={cn("flex flex-col gap-6 max-w-3xl mx-auto p-6")}>      
+    <div className={cn("flex flex-col gap-6 max-w-3xl mx-auto p-6")}>
       {error && (
         <Alert variant="destructive" className="mt-2">
           <AlertCircle className="h-4 w-4" />
@@ -90,25 +90,53 @@ export const SignupForm = () => {
       )}
       <Card className="shadow-md p-6">
         <CardContent>
-          <h1 className="text-2xl font-bold text-center mb-4">Create an Account</h1>
+          <h1 className="text-2xl font-bold text-center mb-4">
+            Create an Account
+          </h1>
           <form onSubmit={handleSubmit} className="grid gap-4">
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label htmlFor="first_name">First Name</Label>
-                <Input id="first_name" name="first_name" type="text" required value={formData.first_name} onChange={handleChange} />
+                <Input
+                  id="first_name"
+                  name="first_name"
+                  type="text"
+                  required
+                  value={formData.first_name}
+                  onChange={handleChange}
+                />
               </div>
               <div>
                 <Label htmlFor="last_name">Last Name</Label>
-                <Input id="last_name" name="last_name" type="text" required value={formData.last_name} onChange={handleChange} />
+                <Input
+                  id="last_name"
+                  name="last_name"
+                  type="text"
+                  required
+                  value={formData.last_name}
+                  onChange={handleChange}
+                />
               </div>
             </div>
             <div>
               <Label htmlFor="dob">Date of Birth</Label>
-              <Input id="dob" name="dob" type="date" required value={formData.dob} onChange={handleChange} />
+              <Input
+                id="dob"
+                name="dob"
+                type="date"
+                required
+                value={formData.dob}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Label htmlFor="gender">Gender</Label>
-              <Select value={formData.gender} onValueChange={(value) => setFormData({ ...formData, gender: value })}>
+              <Select
+                value={formData.gender}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, gender: value })
+                }
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select Gender" />
                 </SelectTrigger>
@@ -121,29 +149,69 @@ export const SignupForm = () => {
             </div>
             <div>
               <Label htmlFor="address">Address</Label>
-              <Input id="address" name="address" type="text" required value={formData.address} onChange={handleChange} />
+              <Input
+                id="address"
+                name="address"
+                type="text"
+                required
+                value={formData.address}
+                onChange={handleChange}
+              />
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label htmlFor="phone">Phone</Label>
-                <Input id="phone" name="phone" type="text" required value={formData.phone} onChange={handleChange} />
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="text"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
               <div>
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} />
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                />
               </div>
             </div>
             <div>
               <Label htmlFor="password">Password</Label>
-              <Input id="password" name="password" type="password" required value={formData.password} onChange={handleChange} />
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                required
+                value={formData.password}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Label htmlFor="confirm_password">Confirm Password</Label>
-              <Input id="confirm_password" name="confirm_password" type="password" required value={formData.confirm_password} onChange={handleChange} />
+              <Input
+                id="confirm_password"
+                name="confirm_password"
+                type="password"
+                required
+                value={formData.confirm_password}
+                onChange={handleChange}
+              />
             </div>
             <div>
               <Label htmlFor="role_type">Role</Label>
-              <Select value={formData.role_type} onValueChange={(value) => setFormData({ ...formData, role_type: value })}>
+              <Select
+                value={formData.role_type}
+                onValueChange={(value) =>
+                  setFormData({ ...formData, role_type: value })
+                }
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Select Role" />
                 </SelectTrigger>
@@ -154,7 +222,9 @@ export const SignupForm = () => {
                 </SelectContent>
               </Select>
             </div>
-            <Button type="submit" className="w-full">Sign Up</Button>
+            <Button type="submit" className="w-full">
+              Sign Up
+            </Button>
           </form>
         </CardContent>
       </Card>
